@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./pages/index.css" rel="stylesheet">
+    <title>Место</title>
+  </head>
+  <body>
+    <div class="page">
+      <header class="header">
+        <img src="./images/Логотип.svg" alt="Логотип" class="header__logo">
+        <img
+          src="./images/logomob.svg"
+          alt="Логотип"
+          class="header__logo-mob">
+        <div class="header__line"></div>
+      </header>
+      <main class="main">
+        <section class="profile">
+          <img src="./images/Avatar.jpg" alt="Аватар" class="profile__avatar">
+          <div class="profile__info">
+            <div class="profile__wrapper">
+              <h1 class="profile__title">Жак-Ив Кусто</h1>
+              <button class="profile__btn popup_opened"></button>
+            </div>
+            <p class="profile__subtitle">Исследователь океана</p>
+          </div>
+          <button class="profile__btn_add"></button>
+        </section>
+        <section class="elements">
+          <ul class="elements__container">
+            <li class="element">
+              <figure class="element__container">
+                <img
+                  src="./images/Карачаево-Черкессия.jpg"
+                  alt="Карачаево-Черкессия"
+                  class="element__img">
+                <figcaption class="element__info">
+                  <h2 class="element__title">Карачаево-Черкессия</h2>
+                  <button class="element__like-btn"></button>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="element">
+              <figure class="element__container">
+                <img
+                  src="./images/Гора Эльбрус.jpg"
+                  alt="Гора Эльбрус"
+                  class="element__img">
+                <figcaption class="element__info">
+                  <h2 class="element__title">Гора Эльбрус</h2>
+                  <button class="element__like-btn"></button>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="element">
+              <figure class="element__container">
+                <img
+                  src="./images/Камчатка.jpg"
+                  alt="Камчатка"
+                  class="element__img">
+                <figcaption class="element__info">
+                  <h2 class="element__title">Камчатка</h2>
+                  <button class="element__like-btn"></button>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="element">
+              <figure class="element__container">
+                <img
+                  src="./images/Корякский вулкан.jpg"
+                  alt="Корякский вулкан"
+                  class="element__img">
+                <figcaption class="element__info">
+                  <h2 class="element__title">Корякский вулкан</h2>
+                  <button class="element__like-btn"></button>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="element">
+              <figure class="element__container">
+                <img
+                  src="./images/Мыс Острый Охотское море.jpg"
+                  alt="Мыс Острый Охотское море"
+                  class="element__img">
+                <figcaption class="element__info">
+                  <h2 class="element__title">Мыс Острый Охотское море</h2>
+                  <button class="element__like-btn"></button>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="element">
+              <figure class="element__container">
+                <img
+                  src="./images/Куршская коса.jpg"
+                  alt="Куршская коса"
+                  class="element__img">
+                <figcaption class="element__info">
+                  <h2 class="element__title">Куршская коса</h2>
+                  <button class="element__like-btn"></button>
+                </figcaption>
+              </figure>
+            </li>
+          </ul>
+        </section>
+        <div class="popup">
+          <div class="popup__container">
+            <div class="popup__body">
+              <p class="popup__title">Редактировать профиль</p>
+              <form action="">
+                <input
+                  class="popup__username"
+                  type="text"
+                  value="Жак-Ив-Кусто"
+                  placeholder="Имя">
+                <div class="popup__line-one"></div>
+                <input
+                  class="popup__userjob"
+                  type="text"
+                  value="Исследователь океанов"
+                  placeholder="О себе">
+                <div class="popup__line-two"></div>
+                <div class="popup__close"></div>
+                <button class="popup__button">Сохранить</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="footer__logo">&copy;2022 Mesto Russia</div>
+      </footer>
+    </div>
+    <script src="./index.js"></script>
+  </body>
+</html>

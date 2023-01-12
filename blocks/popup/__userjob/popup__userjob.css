@@ -1,0 +1,13 @@
+.popup__userjob {
+  display: block;
+  margin: 0 auto 13px auto;
+  max-width: 358px;
+  font-size: 14px;
+  line-height: 17px;
+  border: none;
+  color: #000;
+}
+
+.popup__userjob:focus {
+  outline: none;
+}

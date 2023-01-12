@@ -1,0 +1,13 @@
+.profile__btn {
+  min-width: 24px;
+  min-height: 24px;
+  cursor: pointer;
+  border: 1px solid #fff;
+  background: #000;
+  background-image: url("../../../images/Редактировать\ профиль.svg");
+  background-repeat: no-repeat;
+  background-position: 50%;
+}
+.profile__btn:hover {
+  opacity: 0.6;
+}
