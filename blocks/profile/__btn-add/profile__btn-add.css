@@ -4,7 +4,7 @@
   cursor: pointer;
   border: 2px solid #fff;
   border-radius: 2px;
-  background: #000;
+  background: transparent;
   background-image: url("../../../images/addButton.svg");
   background-repeat: no-repeat;
   background-position: 50%;
@@ -17,5 +17,6 @@
 @media screen and (max-width: 768px) {
   .profile__btn-add {
     width: 282px;
+    background-image: url("../../../images/addbtn-smoll.svg");
   }
 }

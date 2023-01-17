@@ -3,11 +3,18 @@
   min-height: 24px;
   cursor: pointer;
   border: 1px solid #fff;
-  background: #000;
-  background-image: url("../../../images/Редактировать\ профиль.svg");
+  background-color: transparent;
+  background-image: url("../../../images/Редактировать-профиль.svg");
   background-repeat: no-repeat;
   background-position: 50%;
 }
 .profile__btn:hover {
   opacity: 0.6;
+}
+
+@media screen and (max-width: 768px) {
+  .profile__btn {
+    min-width: 18px;
+    min-height: 18px;
+  }
 }

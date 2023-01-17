@@ -1,10 +1,12 @@
 .popup__close {
   cursor: pointer;
   position: absolute;
-  width: 32px;
-  height: 32px;
+  border: 0;
+  max-width: 32px;
+  max-height: 32px;
   top: -32px;
   right: -32px;
+  background-color: transparent;
 }
 
 .popup__close:hover {
@@ -14,11 +16,11 @@
 .popup__close::before,
 .popup__close:after {
   position: absolute;
-  left: 30px;
+
   top: -7px;
   content: " ";
-  height: 33px;
-  width: 2px;
+  height: 40px;
+  width: 3px;
   background-color: #fff;
 }
 .popup__close:before {
