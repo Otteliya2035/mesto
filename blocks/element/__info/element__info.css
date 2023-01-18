@@ -1,6 +1,8 @@
 .element__info {
+  width: 246px;
+  margin: 13px 21px 31px 15px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin: 20px;
 }
+
+

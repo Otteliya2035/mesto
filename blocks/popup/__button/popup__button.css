@@ -13,13 +13,14 @@
   color: #fff;
   cursor: pointer;
   outline: none;
+  border: 0;
 }
 
 .popup__button:hover {
   opacity: 0.8;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 500px) {
   .popup__button {
     width: 238px;
     min-height: 46px;
