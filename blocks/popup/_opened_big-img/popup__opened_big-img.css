@@ -1,4 +1,4 @@
-.popup_opened {
+.popup_opened_big-img {
   visibility: visible;
   opacity: 1;
   transition: visibility 0s, opacity 0.5s linear;
