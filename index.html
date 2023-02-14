@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
   <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge" >
     <meta name="viewport" content="width=device-width, initial-scale=1.0" >
     <link href="./pages/index.css" rel="stylesheet" >
@@ -10,11 +10,11 @@
   <body class="body">
     <div class="page">
       <header class="header">
-        <img src="./images/Логотип.svg" alt="Логотип" class="header__logo" >
+        <img src="./images/Логотип.svg" alt="Логотип" class="header__logo">
       </header>
       <main class="main">
         <section class="profile">
-          <img src="./images/Avatar.jpg" alt="Аватар" class="profile__avatar" >
+          <img src="./images/Avatar.jpg" alt="Аватар" class="profile__avatar">
           <div class="profile__info">
             <div class="profile__wrapper">
               <h1 class="profile__title">Жак-Ив Кусто</h1>
@@ -34,18 +34,31 @@
       <div class="popup popup_edit-profile">
         <div class="popup__container">
           <h2 class="popup__title">Редактировать профиль</h2>
-          <form class="popup__form popup__form-profile" name="form">
+          <form class="popup__form popup__form-profile" name="form" novalidate>
             <input
+              id="profile"
               class="popup__field popup__field_input_username"
               name="name"
               type="text"
-              required placeholder="Имя">
+              minlength="2"
+              maxlength="40"
+              required
+              placeholder="Имя">
+            <span class="popup__input popup__input-error"></span>
             <input
+              id="job"
               class="popup__field popup__field_input_userjob"
               name="job"
               type="text"
-              required placeholder="О себе">
-            <button class="popup__close popup__close-profile" type="button"></button>
+              minlength="2"
+              maxlength="200"
+              required
+              placeholder="О себе">
+            <span class="popup__input popup__input-error"></span>
+            <button
+              class="popup__close popup__close-profile"
+              type="button"
+            ></button>
             <button class="popup__button" type="submit">Сохранить</button>
           </form>
         </div>
@@ -53,20 +66,29 @@
       <div class="popup popup_new-place">
         <div class="popup__container">
           <h2 class="popup__title">Новое место</h2>
-          <form class="popup__form popup__form-place" name="form">
+          <form class="popup__form popup__form-place" name="form" novalidate>
             <input
               class="popup__field popup__field_input_new-place"
               name="name"
+              id="name"
               type="text"
-              required placeholder="Название">
+              minlength="2"
+              maxlength="30"
+              required
+              placeholder="Название">
+            <span class="popup__input-error popup__input-error_field_name"> </span>
             <input
               class="popup__field popup__field_input_link-pic"
               name="Link to picture"
+              id="link"
               type="url"
-              required placeholder="Ссылка на картинку">
+              required
+              placeholder="Ссылка на картинку">
+            <span class="popup__input-error popup__input-error_field_link"> </span>
             <button
               class="popup__close popup__close_place"
-              type="button"></button>
+              type="button"
+            ></button>
             <button class="popup__button popup__button_submit" type="submit">
               Создать
             </button>
@@ -98,7 +120,8 @@
         </figure>
       </li>
     </template>
-    <script src="./scripts/cards.js"></script>
-    <script src="./scripts/index.js"></script>
+    <script defer src="./scripts/validate.js"></script>
+    <script defer src="./scripts/cards.js"></script>
+    <script defer src="./scripts/index.js"></script>
   </body>
 </html>

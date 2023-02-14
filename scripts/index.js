@@ -20,13 +20,31 @@ const imagePopup = popupContainer.querySelector(".popup__img");
 const captionText = document.querySelector(".popup__caption");
 const popupCloseImgBtn = document.querySelector(".popup__close_img");
 const formElementNewPlace = document.querySelector(".popup__form-place");
+const allPopups = document.querySelectorAll(".popup");
 
 function openPopup(popup) {
   popup.classList.add("popup_opened");
+  document.addEventListener("keyup", closeEscPopup);
 }
 
 function closePopup(popup) {
   popup.classList.remove("popup_opened");
+  document.removeEventListener("keyup", closeEscPopup);
+}
+
+allPopups.forEach((popup) => {
+  popup.addEventListener("click", (evt) => {
+    if (evt.target === evt.currentTarget) {
+      closePopup(popup);
+    }
+  });
+});
+
+function closeEscPopup(evt) {
+  if (evt.key === "Escape") {
+    const popup = document.querySelector(".popup_opened");
+    closePopup(popup);
+  }
 }
 
 function changeUserInfo() {
