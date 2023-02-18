@@ -68,6 +68,8 @@ function handleFormSubmitNewPlace(evt) {
   const name = inputNewPlace.value;
   const link = inputLinkPic.value;
   const card = createCard({ name, link });
+  inputNewPlace.value = "";
+  inputLinkPic.value = "";
   closePopup(popUpNewPlace);
   addCard(card);
 }
