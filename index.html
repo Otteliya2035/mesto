@@ -2,9 +2,9 @@
 <html lang="ru">
   <head>
     <meta charset="UTF-8" >
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
-    <link href="./pages/index.css" rel="stylesheet" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./pages/index.css" rel="stylesheet">
     <title>Место</title>
   </head>
   <body class="body">
@@ -35,15 +35,29 @@
         <div class="popup__container">
           <h2 class="popup__title">Редактировать профиль</h2>
           <form class="popup__form popup__form-profile" name="form" novalidate>
-            <input id="profile" class="popup__field popup__field_input_username" name="name" type="text" minlength="2" maxlength="40"
+            <input
+              class="popup__field popup__field_input_username"
+              name="name"
+              type="text"
+              minlength="2"
+              maxlength="40"
               required
-              placeholder="Имя">
-            <span class="popup__input-error profile-name-input-error"></span>
-            <input id="job" class="popup__field popup__field_input_userjob" name="job" type="text" minlength="2" maxlength="200" required
-              placeholder="О себе">
-            <span class="popup__input-error profile-job-input-error"></span>
+              placeholder="Имя"
+              id="profile">
+            <span class="popup__input-error profile-error"></span>
+            <input
+              class="popup__field popup__field_input_userjob"
+              name="job"
+              type="text"
+              minlength="2"
+              maxlength="200"
+              required
+              placeholder="О себе"
+              id="job">
+            <span class="popup__input-error job-error"></span>
             <button
-              class="popup__close popup__close-profile" type="button"></button>
+              class="popup__close popup__close-profile"
+              type="button"></button>
             <button class="popup__button" type="submit">Сохранить</button>
           </form>
         </div>
@@ -52,18 +66,31 @@
         <div class="popup__container">
           <h2 class="popup__title">Новое место</h2>
           <form class="popup__form popup__form-place" name="form" novalidate>
-            <input class="popup__field popup__field_input_new-place" name="name" id="name" type="text" minlength="2" maxlength="30"
+            <input
+              class="popup__field popup__field_input_new-place"
+              name="name"
+              type="text"
+              minlength="2"
+              maxlength="30"
               required
-              placeholder="Название">
-            <span class="popup__input-error form-place-input-error"> </span>
-            <input class="popup__field popup__field_input_link-pic" name="Link to picture" id="link" type="url" required
-              placeholder="Ссылка на картинку">
-            <span class="popup__input-error place-link-input-error"> </span>
+              placeholder="Название"
+              id="name">
+            <span class="popup__input-error name-error"> </span>
+            <input
+              class="popup__field popup__field_input_link-pic"
+              name="Link to picture"
+              type="url"
+              required
+              placeholder="Ссылка на картинку"
+              id="link">
+            <span class="popup__input-error link-error"> </span>
             <button
               class="popup__close popup__close_place"
-              type="button"
-            ></button>
-            <button class="popup__button popup__button_submit" type="submit">
+              type="button"></button>
+            <button
+              class="popup__button popup__button_submit"
+              id="addplace"
+              type="submit">
               Создать
             </button>
           </form>

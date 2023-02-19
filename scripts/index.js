@@ -21,6 +21,7 @@ const captionText = document.querySelector(".popup__caption");
 const popupCloseImgBtn = document.querySelector(".popup__close_img");
 const formElementNewPlace = document.querySelector(".popup__form-place");
 const allPopups = document.querySelectorAll(".popup");
+const buttonAddPlace = document.getElementById("addplace");
 
 function openPopup(popup) {
   popup.classList.add("popup_opened");
@@ -123,6 +124,8 @@ formElementEditProfile.addEventListener("submit", handleFormSubmitEditProfile);
 
 profilAddBtn.addEventListener("click", function (evt) {
   evt.preventDefault();
+  buttonAddPlace.setAttribute("disabled", "disabled");
+  buttonAddPlace.classList.add("popup__button_disabled");
   openPopup(popUpNewPlace);
 });
 
@@ -134,6 +137,7 @@ formElementNewPlace.addEventListener("submit", handleFormSubmitNewPlace);
 
 imagePopup.addEventListener("click", function (evt) {
   evt.preventDefault();
+
   openPopup(popupContainer);
 });
 
