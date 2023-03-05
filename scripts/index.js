@@ -1,3 +1,6 @@
+import { Card } from "./Cards.js";
+import { FormValidator } from "./Formvalidator.js";
+
 const profilEditButton = document.querySelector(".profile__btn");
 const popupCloseProfile = document.querySelector(".popup__close-profile");
 const popupEditProfile = document.querySelector(".popup_edit-profile");
@@ -61,9 +64,6 @@ function handleFormSubmitEditProfile(evt) {
   closePopup(popupEditProfile);
 }
 
-function addCard(card) {
-  placesContainer.prepend(card);
-}
 function handleFormSubmitNewPlace(evt) {
   evt.preventDefault();
   const name = inputNewPlace.value;
@@ -75,40 +75,14 @@ function handleFormSubmitNewPlace(evt) {
   addCard(card);
 }
 
-function renderInitialCards() {
-  const cards = initialCards.map((cardData) => {
-    return createCard(cardData);
-  });
-  placesContainer.prepend(...cards);
+function createCard({ name, link }) {
+  return new Card({ name, link }, "#place-template").generateCard();
 }
 
-renderInitialCards();
+formElementNewPlace.addEventListener("submit", handleFormSubmitNewPlace);
 
-function createCard(cardData) {
-  const card = cardTemplate.cloneNode(true);
-  card.querySelector(".element__title").textContent = cardData.name;
-  const image = card.querySelector(".element__img");
-  image.src = cardData.link;
-  image.alt = cardData.name;
-  const caption = card.querySelector(".element__title");
-  image.addEventListener("click", function () {
-    openPopup(popupContainer);
-    imagePopup.src = image.src;
-    imagePopup.alt = image.alt;
-    captionText.textContent = caption.textContent;
-  });
-
-  card
-    .querySelector(".element__like-btn")
-    .addEventListener("click", function (evt) {
-      evt.target.classList.toggle("element__like-btn_active");
-    });
-
-  card.querySelector(".element__delete").addEventListener("click", () => {
-    card.remove();
-  });
-
-  return card;
+function addCard(card) {
+  placesContainer.prepend(card);
 }
 
 popupCloseProfile.addEventListener("click", function () {
@@ -143,4 +117,22 @@ imagePopup.addEventListener("click", function (evt) {
 
 popupCloseImgBtn.addEventListener("click", function () {
   closePopup(popupContainer);
+});
+
+const formElements = document.querySelectorAll(".popup__form");
+
+formElements.forEach((formElement) => {
+  const config = new FormValidator(
+    {
+      formSelector: ".popup__form",
+      inputSelector: ".popup__field",
+      submitButtonSelector: ".popup__button",
+      inactiveButtonClass: "popup__button_disabled",
+      inputErrorClass: "form__input_type_error",
+      errorClass: "popup__field_invalid",
+    },
+    formElement
+  );
+
+  config.enableValidation();
 });
