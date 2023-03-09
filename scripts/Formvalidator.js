@@ -34,7 +34,6 @@ export default class FormValidator {
     const buttonElement = this._formElement.querySelector(
       this._config.submitButtonSelector
     );
-    buttonElement.disabled = true;
     buttonElement.classList.add(this._config.inactiveButtonClass);
   }
 
