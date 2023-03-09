@@ -1,29 +1,4 @@
-const initialCards = [
-  {
-    name: "Архыз",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg",
-  },
-  {
-    name: "Челябинская область",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg",
-  },
-  {
-    name: "Иваново",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg",
-  },
-  {
-    name: "Камчатка",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg",
-  },
-  {
-    name: "Холмогорский район",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg",
-  },
-  {
-    name: "Байкал",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
-  },
-];
+import { openPopup } from "./index.js";
 
 export class Card {
   constructor(data, templateSelector) {
@@ -32,8 +7,10 @@ export class Card {
     this._like = data.like;
     this._deleteBtn = data.deleteBtn;
     this._templateSelector = templateSelector;
+    this.imagePopup = document.querySelector(".popup__img");
+    this.captionText = document.querySelector(".popup__caption");
+    this.popupContainer = document.querySelector(".popup_big-img");
   }
-
   _getTemplate() {
     const cardElement = document
       .querySelector(this._templateSelector)
@@ -52,13 +29,14 @@ export class Card {
   }
 
   _handleOpenPopup() {
-    imagePopup.src = this._link;
-    captionText.textContent = this._name;
-    openPopup(popupContainer);
+    //console.log(this);
+    this.imagePopup.src = this._link;
+    this.captionText.textContent = this._name;
+    this.popupContainer.addEventListener("click", this._handleOpenPopup);
+    openPopup(this.popupContainer);
   }
   _handleClosePopup() {
-    imagePopup.src = "";
-    popupCloseImgBtn.removeEventListener("click", this._handleClosePopup);
+    this.imagePopup.src = "";
   }
   _setEventListeners() {
     this._element
@@ -68,7 +46,7 @@ export class Card {
       });
     const popupCloseImgBtn = document.querySelector(".popup__close_img");
     popupCloseImgBtn.addEventListener("click", () => {
-      this._handleClosePopup(); 
+      this._handleClosePopup();
     });
 
     this._element
@@ -96,9 +74,3 @@ export class Card {
       });
   }
 }
-initialCards.forEach((item) => {
-  const card = new Card(item, ".place-template_type_default");
-
-  const cardElement = card.generateCard();
-  document.querySelector(".elements__container").prepend(cardElement);
-});
