@@ -56,7 +56,6 @@ function openPopupProfile() {
   nameInput.value = profileName.textContent;
   jobInput.value = profileJob.textContent;
   validatorEdit.resetValidation();
-  validatorEdit.resetSaveButtonState();
   openPopup(popupEditProfile);
 }
 
@@ -72,8 +71,6 @@ function handleFormSubmitNewPlace(evt) {
   const name = inputNewPlace.value;
   const link = inputLinkPic.value;
   const card = createCard({ name, link });
-  inputNewPlace.reset;
-  inputLinkPic.reset;
   closePopup(popUpNewPlace);
   addCard(card);
 }
@@ -104,7 +101,6 @@ formElementEditProfile.addEventListener("submit", handleFormSubmitEditProfile);
 function handleAddPlaceButtonClick(evt) {
   evt.preventDefault();
   validatorPlace.resetValidation();
-  validatorPlace.resetSaveButtonState();
   inputNewPlace.value = "";
   inputLinkPic.value = "";
   openPopup(popUpNewPlace);
@@ -123,8 +119,6 @@ function handleImagePopupClick(evt) {
   evt.preventDefault();
   openPopup(popupContainer);
 }
-
-imagePopup.addEventListener("click", handleImagePopupClick);
 
 function handleCloseImagePopupClick(evt) {
   evt.preventDefault();
@@ -148,16 +142,7 @@ const config = {
 };
 
 const validatorEdit = new FormValidator(config, popupEditProfile);
-const validatorPlace = new FormValidator(config, popUpNewPlace);
-
-const enableValidation = (config) => {
-  const formList = Array.from(document.querySelectorAll(config.formSelector));
-  formList.forEach((formElement) => {
-    const validatorEdit = new FormValidator(config, popupEditProfile);
 validatorEdit.enableValidation();
+
 const validatorPlace = new FormValidator(config, popUpNewPlace);
 validatorPlace.enableValidation();
-  });
-};
-
-enableValidation(config);
