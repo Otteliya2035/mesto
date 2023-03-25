@@ -4,6 +4,7 @@ export class Card {
     this._link = data.link;
     this._templateSelector = templateSelector;
     this._handleCardClick = handleCardClick;
+    
   }
 
   _getTemplate() {
@@ -13,7 +14,6 @@ export class Card {
       .cloneNode(true);
     return cardElement;
   }
-
   generateCard() {
     this._element = this._getTemplate();
     this._element.querySelector(".element__img").src = this._link;
@@ -21,7 +21,6 @@ export class Card {
     this._setEventListeners();
     return this._element;
   }
-
   _setEventListeners() {
     this._element
       .querySelector(".element__img")
