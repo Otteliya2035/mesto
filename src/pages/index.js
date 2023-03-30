@@ -8,7 +8,6 @@ import UserInfo from "../components/UserInfo.js";
 import Section from "../components/Section.js";
 import {
   profilEditButton,
-  popupCloseProfile,
   popupEditProfile,
   nameInput,
   jobInput,
@@ -17,14 +16,8 @@ import {
   profilAddBtn,
   popupNewPlace,
   placesContainer,
-  popupCloseImgBtn,
-  inputLinkPic,
-  inputNewPlace,
   config,
 } from "../utils/constants.js";
-import { data } from 'autoprefixer';
-
-
 
 const popupEdit = new PopupWithForm(".popup_edit-profile", (formData) => {
   handleProfileFormSubmit(formData);
@@ -76,8 +69,6 @@ function handleAddCardFormSubmit(data) {
     name: data.name,
     link: data.link,
   };
-  inputNewPlace.value = data.name;
-  inputLinkPic.value = data.link;
   const cardElement = createCard(newCardData);
   cardList.addItem(cardElement);
   popupNew.close();
