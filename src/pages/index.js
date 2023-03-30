@@ -22,12 +22,12 @@ import {
   inputNewPlace,
   config,
 } from "../utils/constants.js";
+import { data } from 'autoprefixer';
 
-const popupWithImage = new PopupWithImage(".popup_big-img");
+
 
 const popupEdit = new PopupWithForm(".popup_edit-profile", (formData) => {
   handleProfileFormSubmit(formData);
-  userInfo.setUserInfo(formData);
 });
 const userInfo = new UserInfo({
   name: profileName,
@@ -35,7 +35,6 @@ const userInfo = new UserInfo({
 });
 
 popupEdit.setEventListeners();
-userInfo.getUserInfo();
 
 profilEditButton.addEventListener("click", () => {
   const userData = userInfo.getUserInfo();
@@ -50,50 +49,50 @@ function handleProfileFormSubmit(values) {
     job: values.job,
   });
 }
-
-popupCloseProfile.addEventListener("submit", (evt) => {
-  evt.preventDefault();
-  const userData = userInfo.setUserInfo({ name, job });
-  profileName.textContent = userData.name;
-  profileJob.textContent = userData.job;
-  popupEdit.close();
-  validatorEdit.resetValidation();
-});
-
 const cardList = new Section(
   {
     items: initialCards,
     renderer: (item) => {
-      const card = new Card(item, "#place-template", handleCardClick);
-      const cardElement = card.generateCard();
+      const cardElement = createCard(item);
       return cardElement;
     },
   },
   placesContainer
 );
 cardList.renderItems();
-const popupNew = new PopupWithForm(".popup_new-place", (item) => {
-  handleAddCardFormSubmit(item);
+
+const popupNew = new PopupWithForm(".popup_new-place", (data) => {
+  handleAddCardFormSubmit(data);
 });
-popupNew.setEventListeners();
-profilAddBtn.addEventListener("click", function () {
-  popupNew.open();
-  validatorPlace.resetValidation();
-});
-function handleAddCardFormSubmit(data) {
-  const card = new Card(
-    {
-      name: inputNewPlace.value,
-      link: inputLinkPic.value,
-    },
-    "#place-template",
-    handleCardClick
-  );
+
+function createCard(item) {
+  const card = new Card(item, "#place-template", handleCardClick);
   const cardElement = card.generateCard();
+  return cardElement;
+}
+
+function handleAddCardFormSubmit(data) {
+  const newCardData = {
+    name: data.name,
+    link: data.link,
+  };
+  inputNewPlace.value = data.name;
+  inputLinkPic.value = data.link;
+  const cardElement = createCard(newCardData);
   cardList.addItem(cardElement);
   popupNew.close();
 }
 
+profilAddBtn.addEventListener("click", function () {
+  popupNew.open();
+  validatorPlace.disableButton();
+});
+
+popupNew.setEventListeners();
+
+const popupWithImage = new PopupWithImage(".popup_big-img", (item) => {
+  handleCloseImagePopupClick(item);
+});
 function handleCardClick(name, link) {
   popupWithImage.open(link, name);
 }
@@ -101,12 +100,10 @@ function handleCloseImagePopupClick(evt) {
   evt.preventDefault();
   popupWithImage.close();
 }
-
-popupCloseImgBtn.addEventListener("click", handleCloseImagePopupClick);
+popupWithImage.setEventListeners();
 
 const validatorEdit = new FormValidator(config, popupEditProfile);
 validatorEdit.enableValidation();
 
 const validatorPlace = new FormValidator(config, popupNewPlace);
 validatorPlace.enableValidation();
-
