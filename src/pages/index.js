@@ -87,10 +87,6 @@ const popupWithImage = new PopupWithImage(".popup_big-img", (item) => {
 function handleCardClick(name, link) {
   popupWithImage.open(link, name);
 }
-function handleCloseImagePopupClick(evt) {
-  evt.preventDefault();
-  popupWithImage.close();
-}
 popupWithImage.setEventListeners();
 
 const validatorEdit = new FormValidator(config, popupEditProfile);
