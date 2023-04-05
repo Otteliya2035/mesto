@@ -43,4 +43,5 @@
 .element__like-container{align-items:center;display:flex;flex-direction:column;width:21px}
 .profile__avatar-btn-icon{background-image:url(8667ac4a523e8fc42e59.svg);background-size:cover;display:none;height:26px;left:50%;position:absolute;top:50%;transform:translate(-50%,-50%);width:26px}
 .profile__avatar-btn{background:#000;border-radius:50%;cursor:pointer;display:inline-block;height:130px;position:relative;width:130px}.profile__avatar-btn:hover .profile__avatar-btn-icon{display:block}.profile__avatar-btn:hover:before{background-color:rgba(0,0,0,.8);border-radius:50%;content:"";height:100%;left:1px;position:absolute;top:0;width:100%}
+.element__delete_hidden{display:none}
 
