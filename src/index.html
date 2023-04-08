@@ -13,7 +13,10 @@
       </header>
       <main class="main">
         <section class="profile">
-          <img src="<%=require('./images/Avatar.jpg')%>"   alt="Аватар" class="profile__avatar">
+          <button class="profile__avatar-btn">
+            <img src="<%=require('./images/Avatar.jpg')%>" alt="Аватар" class="profile__avatar">
+            <span class="profile__avatar-btn-icon"></span>
+          </button>
           <div class="profile__info">
             <div class="profile__wrapper">
               <h1 class="profile__title">Жак-Ив Кусто</h1>
@@ -46,7 +49,7 @@
             <span class="popup__input-error profile-error"></span>
             <input
               class="popup__field popup__field_input_userjob"
-              name="job"
+              name="about"
               type="text"
               minlength="2"
               maxlength="200"
@@ -105,6 +108,34 @@
         </div>
       </div>
     </div>
+    <div class="popup popup__delete-card">
+      <div class="popup__container">
+        <button class="popup__close"  type="button"></button>
+        <form class="popup__form " name="form" novalidate>
+          <h2 class="popup__title">Вы уверены?</h2>
+          <button class="popup__button popup__yes-button" type="submit">Да</button>
+        </form>
+      </div>
+    </div>
+    <div class="popup popup_edit-avatar">
+      <div class="popup__container">
+        <h2 class="popup__title">Обновить аватар</h2>
+        <form class="popup__form popup__form-profile" name="form" novalidate>
+          <input
+            class="popup__field popup__field_input_username"
+            name="avatar"
+            type="url"
+            placeholder="Ссылка на картинку"
+            required
+            id="avatar-input">
+          <span class="popup__input-error link-avatar-input-error"></span>
+          <button
+            class="popup__close popup__close-profile"
+            type="button"></button>
+          <button class="popup__button" type="submit">Сохранить</button>
+        </form>
+      </div>
+    </div>
     <template id="place-template" class="place-template_type_default">
       <li class="element">
         <figure class="element__container">
@@ -114,7 +145,10 @@
             class="element__img">
           <figcaption class="element__info">
             <h2 class="element__title"></h2>
+            <div class="element__like-container">
             <button class="element__like-btn" type="button"></button>
+            <span class="element__like-count">0</span>
+          </div>
             <button class="element__delete" type="button"></button>
           </figcaption>
         </figure>
@@ -122,3 +156,4 @@
     </template>
   </body>
 </html>
+

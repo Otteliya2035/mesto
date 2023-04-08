@@ -39,5 +39,11 @@
 @import url('../blocks/popup/_type_error/form__input_type_error.css');
 @import url('../blocks/popup/__field/_invalid/popup__field_invalid.css');
 @import url('../blocks/popup/__button/_disabled/popup__button_disabled.css');
+@import url('../blocks/element/__like-count/element__like-count.css');
+@import url('../blocks/element/__like-container/element__like-container.css');
+@import url('../blocks/profile/__avatar/profile__avatar-btn-icon.css');
+@import url('../blocks/profile/__avatar/profile__avatar-btn.css');
+@import url('../blocks/element/__delete/_hidden/element__delete_hidden.css');
+
 
 
