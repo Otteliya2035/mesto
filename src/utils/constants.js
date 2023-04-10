@@ -36,7 +36,7 @@ export const buttonAddPlace = document.getElementById("addplace");
 export const avatarPopupOpenButton = document.querySelector(
   ".profile__avatar-btn"
 );
-export const deletePopup = document.querySelector(".popup__delete-card");
+export const deletePopup = document.querySelector(".popup_delete-card");
 export const deleteButton = document.querySelector(".element__delete");
 export const config = {
   formSelector: ".popup__form",
