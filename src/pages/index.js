@@ -156,7 +156,7 @@ profilAddBtn.addEventListener("click", function () {
 
 popupNew.setEventListeners();
 
-const popupDelete = new PopupWithDeleteCard(".popup__delete-card");
+const popupDelete = new PopupWithDeleteCard(".popup_delete-card");
 popupDelete.setEventListeners();
 
 function handleDeleteClick(callback, id) {
