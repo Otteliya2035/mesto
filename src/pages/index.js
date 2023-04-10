@@ -107,16 +107,16 @@ const popupAvatarEdit = new PopupWithForm(".popup_edit-avatar", (formData) => {
 });
 
 function handleProfileAvatarFormSubmit(values) {
-  popupEdit.waitSubmitButton(true);
+  popupAvatarEdit.waitSubmitButton(true);
   api
     .editAvatar({ avatar: values.link })
     .then((res) => {
       userInfo.setAvatar({ avatar: res.avatar });
-      popupEdit.close();
+      popupAvatarEdit.close();
     })
     .catch((err) => console.log(err))
     .finally(() => {
-      popupEdit.waitSubmitButton(false);
+      popupAvatarEdit.waitSubmitButton(false);
     });
 }
 
@@ -147,6 +147,9 @@ const popupNew = new PopupWithForm(".popup_new-place", (data) => {
     })
     .catch((err) => {
       console.log(`Ошибка: ${err}`);
+    })
+    .finally(() => {
+      popupNew.close();
     });
 });
 
@@ -156,12 +159,18 @@ profilAddBtn.addEventListener("click", function () {
 
 popupNew.setEventListeners();
 
-const popupDelete = new PopupWithDeleteCard(".popup_delete-card");
+const popupDelete = new PopupWithDeleteCard(".popup_delete-card", (id) => {
+  api.deleteCard(id).then((res) => {
+    if (res) {
+      popupDelete.close();
+    }
+  })
+    .catch((err) => console.log(err));
+});
 popupDelete.setEventListeners();
 
 function handleDeleteClick(callback, id) {
-  popupDelete.open(callback);
-  api.deleteCard(id).catch((err) => console.log(err));
+  popupDelete.open(callback, id);
 }
 
 function createCard(item) {
