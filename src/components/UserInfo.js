@@ -3,7 +3,6 @@ export default class UserInfo {
     this._name = name;
     this._about = about;
     this._avatar = avatar;
-
   }
   getUserInfo() {
     return {
@@ -14,15 +13,10 @@ export default class UserInfo {
   setUserInfo({ name, about }) {
     this._name.textContent = name;
     this._about.textContent = about;
-
   }
 
-  setAvatar({avatar}) {
-
-    this._avatar.srс = avatar;
-
+  setAvatar({ avatar }) {
+    let imageUrl = `${avatar}?random=${Date.now()}`;
+    this._avatar.src = imageUrl;
+  }
 }
-
-}
-
-

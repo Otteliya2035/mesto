@@ -9,12 +9,18 @@
   <body class="body">
     <div class="page">
       <header class="header">
-        <img src="<%=require('./images/Логотип.svg')%>" alt="Логотип" class="header__logo">
+        <img
+          src="<%=require('./images/Логотип.svg')%>"
+          alt="Логотип"
+          class="header__logo">
       </header>
       <main class="main">
         <section class="profile">
           <button class="profile__avatar-btn">
-            <img src="<%=require('./images/Avatar.jpg')%>" alt="Аватар" class="profile__avatar">
+            <img
+              src="<%=require('./images/Avatar.jpg')%>"
+              alt="Аватар"
+              class="profile__avatar">
             <span class="profile__avatar-btn-icon"></span>
           </button>
           <div class="profile__info">
@@ -59,7 +65,8 @@
             <span class="popup__input-error job-error"></span>
             <button
               class="popup__close popup__close-profile"
-              type="button"></button>
+              type="button"
+            ></button>
             <button class="popup__button" type="submit">Сохранить</button>
           </form>
         </div>
@@ -67,7 +74,11 @@
       <div class="popup popup_new-place">
         <div class="popup__container">
           <h2 class="popup__title">Новое место</h2>
-          <form class="popup__form popup__form-place" id="form" name="form" novalidate>
+          <form
+            class="popup__form popup__form-place"
+            id="form"
+            name="form"
+            novalidate>
             <input
               class="popup__field popup__field_input_new-place"
               name="name"
@@ -88,11 +99,13 @@
             <span class="popup__input-error link-error"> </span>
             <button
               class="popup__close popup__close_place"
-              type="button"></button>
+              type="button"
+            ></button>
             <button
               class="popup__button popup__button_submit"
               id="addplace"
-              type="submit">
+              type="submit"
+            >
               Создать
             </button>
           </form>
@@ -101,7 +114,7 @@
       <div class="popup popup_big-img">
         <div class="popup__figure-container">
           <figure class="popup__figure">
-            <img src="#" class="popup__img" alt="Название карточки">
+            <img src="#" class="popup__img" alt="Название карточки" />
             <figcaption class="popup__caption"></figcaption>
           </figure>
           <button class="popup__close popup__close_img" type="button"></button>
@@ -110,28 +123,31 @@
     </div>
     <div class="popup popup__delete-card">
       <div class="popup__container">
-        <button class="popup__close"  type="button"></button>
-        <form class="popup__form " name="form" novalidate>
+        <button class="popup__close" type="button"></button>
+        <form class="popup__form" name="form" novalidate>
           <h2 class="popup__title">Вы уверены?</h2>
-          <button class="popup__button popup__yes-button" type="submit">Да</button>
+          <button class="popup__button popup__yes-button" type="submit">
+            Да
+          </button>
         </form>
       </div>
     </div>
     <div class="popup popup_edit-avatar">
       <div class="popup__container">
         <h2 class="popup__title">Обновить аватар</h2>
-        <form class="popup__form popup__form-profile" name="form" novalidate>
+        <form class="popup__form popup__form-avatar" name="form" novalidate>
           <input
-            class="popup__field popup__field_input_username"
-            name="avatar"
+            class="popup__field popup__field_input_avatar"
+            name="link"
             type="url"
             placeholder="Ссылка на картинку"
             required
             id="avatar-input">
-          <span class="popup__input-error link-avatar-input-error"></span>
+          <span class="popup__input-error avatar-input-error"></span>
           <button
-            class="popup__close popup__close-profile"
-            type="button"></button>
+            class="popup__close popup__close-avatar"
+            type="button"
+          ></button>
           <button class="popup__button" type="submit">Сохранить</button>
         </form>
       </div>
@@ -139,16 +155,13 @@
     <template id="place-template" class="place-template_type_default">
       <li class="element">
         <figure class="element__container">
-          <img
-            src="#"
-            alt="Название карточки"
-            class="element__img">
+          <img src="#" alt="Название карточки" class="element__img" />
           <figcaption class="element__info">
             <h2 class="element__title"></h2>
             <div class="element__like-container">
-            <button class="element__like-btn" type="button"></button>
-            <span class="element__like-count">0</span>
-          </div>
+              <button class="element__like-btn" type="button"></button>
+              <span class="element__like-count">0</span>
+            </div>
             <button class="element__delete" type="button"></button>
           </figcaption>
         </figure>
@@ -156,4 +169,3 @@
     </template>
   </body>
 </html>
-
