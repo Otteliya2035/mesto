@@ -107,7 +107,7 @@ const popupAvatarEdit = new PopupWithForm(".popup_edit-avatar", (formData) => {
 });
 
 function handleProfileAvatarFormSubmit(values) {
-  popupAvatarEdit.waitSubmitButton(true);
+  popupAvatarEdit.changeButtonText(true);
   api
     .editAvatar({ avatar: values.link })
     .then((res) => {
@@ -116,7 +116,7 @@ function handleProfileAvatarFormSubmit(values) {
     })
     .catch((err) => console.log(err))
     .finally(() => {
-      popupAvatarEdit.waitSubmitButton(false);
+      popupAvatarEdit.changeButtonText(false);
     });
 }
 
@@ -126,6 +126,7 @@ const popupEdit = new PopupWithForm(".popup_edit-profile", (formData) => {
 
 avatarPopupOpenButton.addEventListener("click", () => {
   popupAvatarEdit.open();
+  validatorAvatar.disableButton();
 });
 
 popupAvatarEdit.setEventListeners();
@@ -135,26 +136,30 @@ profilEditButton.addEventListener("click", () => {
   nameInput.value = userData.name;
   jobInput.value = userData.about;
   popupEdit.open();
+  validatorEdit.disableButton();
 });
 
 popupEdit.setEventListeners();
 
 const popupNew = new PopupWithForm(".popup_new-place", (data) => {
+  popupNew.changeButtonText(true);
   api
     .addNewCard(data)
     .then((cardData) => {
       cardList.addItem(cardData);
+      popupNew.close();
     })
     .catch((err) => {
       console.log(`Ошибка: ${err}`);
     })
     .finally(() => {
-      popupNew.close();
+      popupNew.changeButtonText(false);
     });
 });
 
 profilAddBtn.addEventListener("click", function () {
   popupNew.open();
+  validatorPlace.disableButton();
 });
 
 popupNew.setEventListeners();
@@ -188,7 +193,7 @@ function createCard(item) {
 }
 
 function handleProfileFormSubmit(values) {
-  popupEdit.waitSubmitButton(true);
+  popupEdit.changeButtonText(true);
   api
     .editUserInfo({ name: values.name, profession: values.about })
     .then((res) => {
@@ -199,6 +204,6 @@ function handleProfileFormSubmit(values) {
       console.log(err);
     })
     .finally(() => {
-      popupEdit.waitSubmitButton(false);
+      popupEdit.changeButtonText(false);
     });
 }

@@ -16,7 +16,7 @@ export default class Api {
       (res) => this._checkResponse(res)
     );
   }
-  
+
   editUserInfo({ name, profession }) {
     return fetch(`${this._url}/users/me`, {
       method: "PATCH",

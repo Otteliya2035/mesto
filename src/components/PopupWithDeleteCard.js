@@ -25,8 +25,4 @@ export default class PopupWithDeleteCard extends Popup {
     this._cardId = id;
   }
 
-  close() {
-    super.close();
-    this._form.reset();
-  }
 }

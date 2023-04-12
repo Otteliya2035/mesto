@@ -16,7 +16,7 @@ export default class UserInfo {
   }
 
   setAvatar({ avatar }) {
-    let imageUrl = `${avatar}?random=${Date.now()}`;
+   const imageUrl = `${avatar}`;
     this._avatar.src = imageUrl;
   }
 }
